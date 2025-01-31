@@ -12,7 +12,7 @@ const makeImage = (arr) => {
 		imagesContainer.appendChild(imageblock);
 		let image = document.createElement("img");
 		image.src = elem.url;
-        image.addEventListener('error', () => image.src = "../leo.jpg");
+        	image.addEventListener('error', () => image.src = "../leo.jpg");
 		image.alt = "nice cat";
 		image.classList.add("gallery__item-img");
 		imageblock.appendChild(image);
