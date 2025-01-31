@@ -27,7 +27,6 @@ const getImages = async () => {
      	}
 		const data = await res.json();
 		if (data) {
-			data.forEach(elem => console.log(elem.url));
 			makeImage(data);
 		}
 	} catch (error) {
