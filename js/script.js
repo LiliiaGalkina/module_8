@@ -12,11 +12,13 @@ const makeImage = (arr) => {
 		imagesContainer.appendChild(imageblock);
 		let image = document.createElement("img");
 		image.src = elem.url;
+        image.addEventListener('error', () => image.src = "../leo.jpg");
 		image.alt = "nice cat";
 		image.classList.add("gallery__item-img");
 		imageblock.appendChild(image);
 	}
 }
+
 
 const getImages = async () => {
 	try {
@@ -27,11 +29,10 @@ const getImages = async () => {
      	}
 		const data = await res.json();
 		if (data) {
-			data.forEach(elem => console.log(elem.url));
 			makeImage(data);
 		}
 	} catch (error) {
-		console.error("Error:" + error.message);
+        console.error("Error:" + error.message);
 	} finally {
 		loader.style.display = "none";
 	}
